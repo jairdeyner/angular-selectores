@@ -33,18 +33,18 @@ export class PaisesService {
     return this.http.get<Array<Country>>(url);
   }
 
-  getPaisPorCodigoSmall(codigo: string): Observable<Array<Pais>> {
+  getPaisPorCodigoSmall(codigo: string): Observable<Pais> {
     const url = `${this.baseUrl}/alpha/${codigo}?fields=name,cca3`;
 
-    return this.http.get<Pais[]>(url);
+    return this.http.get<Pais>(url);
   }
 
-  getPaisesPorCodigo(borders: Array<string>): Observable<Pais[][]> {
+  getPaisesPorCodigo(borders: Array<string>): Observable<Pais[]> {
     if (!borders) {
       return of([]);
     }
 
-    const peticiones: Observable<Pais[]>[] = [];
+    const peticiones: Observable<Pais>[] = [];
 
     borders.forEach((codigo) => {
       const peticion = this.getPaisPorCodigoSmall(codigo);

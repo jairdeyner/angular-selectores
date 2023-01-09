@@ -51,6 +51,7 @@ export class SelectorPageComponent implements OnInit {
         this.cargando = false;
       });
 
+    // Cuanod cambia el país
     this.miFormulario
       .get('pais')
       ?.valueChanges.pipe(
@@ -63,10 +64,8 @@ export class SelectorPageComponent implements OnInit {
         switchMap((pais) => this.paisesService.getPaisesPorCodigo(pais?.[0].borders!))
       )
       .subscribe((paises) => {
-        // TODO: Here
-        // this.fronteras = pais ? pais[0].borders : [];
-        // this.fronteras = paises;
-        // this.cargando = false;
+        this.fronteras = paises;
+        this.cargando = false;
       });
   }
 

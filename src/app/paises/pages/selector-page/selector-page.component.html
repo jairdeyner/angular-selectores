@@ -29,8 +29,8 @@
       <label class="form-label">Fronteras:</label>
       <select formControlName="frontera" class="form-control">
         <option value="">-- Seleccione el país fronterizo --</option>
-        <option *ngFor="let fontera of fronteras" [value]="fontera">
-          {{ fontera }}
+        <option *ngFor="let fontera of fronteras" [value]="fontera.cca3">
+          {{ fontera.name.common }}
         </option>
       </select>
     </div>
